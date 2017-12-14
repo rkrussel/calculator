@@ -1,0 +1,62 @@
+body {
+  background-repeat: no-repeat;
+  background-image: url('woodbg.jpeg');
+  text-align:center;
+  
+      
+}
+.calculator {
+  background-color:rgb(226, 226, 206);
+  border-radius: 7px;
+  box-shadow:14px 12px rgba(45, 45, 45, 0.5);
+  text-align:center;
+  margin: 45px auto;
+  width: 450px;
+  height:600px;
+  padding-top:50px;
+  
+  display:grid;
+  justify-content: center;
+  
+  grid-template-columns:100px 100px 100px 100px;
+  grid-template-rows:100px 100px 100px 100px 100px;
+}
+
+.display {
+  border-radius:10px;
+  background-color:rgb(81, 107, 50);
+  opacity:.7;
+  grid-column-start:1;
+  grid-column-end:5;
+  text-align:right;
+  
+}
+
+.printout {
+  
+  font-size: 65px;
+  padding-right:24px;
+}
+
+.item1 {
+  grid-column-start:1;
+  grid-column-end:2;
+}
+
+.buttons {
+    border-radius:15px;
+    color:#fff;
+    background-color:grey;
+    margin:2px;
+    font-size:34px;
+    box-shadow: 3px 3px rgb();
+}
+
+.rightCol {
+    background-color:orange;
+    color:#fff;
+    border-radius:15px;
+    margin:2px;
+    font-size:34px;
+    box-shadow: 3px 3px rgb();
+}

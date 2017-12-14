@@ -1,0 +1,88 @@
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Calculator</title>
+</head>
+<body>
+  <div class='calculator'>
+    <div class='display'>
+      <span class='printout' id='answer'>0</span>
+    </div> 
+      <button class='item1 buttons' value="7">7</button>
+      <button class='buttons' value='8'>8</button>
+      <button class='buttons' value='9'>9</button>
+      <button class='rightCol' value='/'>/</button>
+    
+      <button class='buttons' value='4'>4</button>
+      <button class='buttons' value='5'>5</button>
+      <button class='buttons' value='6'>6</button>
+      <button class='rightCol' value='*'>*</button>
+    
+      <button class='buttons' value='1'>1</button>
+      <button class='buttons' value='2'>2</button>
+      <button class='buttons' value='3'>3</button>
+      <button class='rightCol' value='-'>-</button>
+    
+      <button class='buttons' value='0'>0</button>
+      <button class='buttons' value='.'>.</button>
+      <button class='buttons' value='='>=</button>
+      <button class='rightCol' value='+'>+</dbuttonv>
+  </div>
+  <script>
+    var answer = 0;
+    var display = 0;
+    var buttons = document.getElementsByClassName('buttons');
+    var mathButtons = document.getElementsByClassName('rightCol');
+    var formula = '';
+    
+    
+    for(var i = 0; i < buttons.length; i++) {
+        if(buttons[i].value == '=') {
+            buttons[i].addEventListener("click",function(){
+            doMath();
+          });  
+        } else {
+          buttons[i].addEventListener("click",function(){
+            getValue(this);
+          });
+        }
+    }
+    
+    for(var i = 0; i < mathButtons.length; i++) {
+        mathButtons[i].addEventListener("click",function(){
+          makeFormula(this);
+        });
+    }
+    
+    function getValue(value){
+      if(display > 0 && display.length) {
+        display += value.value;
+      }
+      if( display == 0 ) {
+        display = value.value;
+      }
+       if (display == '+' || display == '-' || display == '*' || display == '/') {
+        display = value.value;
+      }
+      
+      document.getElementById('answer').innerHTML = display;
+    }
+
+    function makeFormula(value) {
+      formula += display + value.value;
+      display = value.value;
+      document.getElementById('answer').innerHTML = display;
+    }
+
+    function doMath() {
+        display = eval(formula);
+        document.getElementById('answer').innerHTML = display;
+    }
+
+    
+  </script>
+</body>
+</html>
